@@ -1,0 +1,25 @@
+<div class="col-md-4" ng-show="vendor_categories.length" ng-repeat="category in vendor_categories">
+    <div class="thumbnail">
+
+        <div class="image-container">
+            <img src="{{category.image}}" alt="{{category.title}}">
+
+            <div class="sub-links" ng-show="category.sub_categories.length">
+                <ul>
+                    <li ng-repeat="sub_category in category.sub_categories">
+                        <a href="/{{vendors[0].slug}}#/{{sub_category.slug}}">{{sub_category.title}}</a>
+                    </li>
+                </ul>
+            </div>
+            <!--sub-links-->
+
+        </div>
+        <!--image-container-->
+
+        <p>{{category.title}}</p>
+
+    </div>
+    <!--thumbnail-->
+</div>
+
+<div class="col-md-4 repeated-item ng-empty-alert hidden" ng-show="!vendor_categories.length">No vendor category available.</div>

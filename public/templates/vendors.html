@@ -1,0 +1,56 @@
+<div class="col-md-4 repeated-item vendor-item" ng-hide="!vendors.length || vendor_categories.length && has_multi_level === true" ng-repeat="vendor in vendors">
+
+    <a ng-if="vendor.multi_level_categories == multi_level_categories" href="#/vendor/{{vendor.slug}}" class="thumbnail off">
+        <img src="{{vendor.logo}}" alt="grocery-mart">
+        <p>{{vendor.business_name}}</p>
+        <span class="best">{{vendor.slogan}}</span>
+        <div class="timing">
+            <span class="{{vendor.working_status}}">{{vendor.working_status}}</span>
+            <span class="clock">{{vendor.opening_time}} to {{vendor.closing_time}}</span>
+        </div>
+    </a>
+
+    <a ng-if="vendor.multi_level_categories !== multi_level_categories" href="/{{category_slug}}/{{vendor.slug}}" class="thumbnail off">
+        <img src="{{vendor.logo}}" alt="grocery-mart">
+        <p>{{vendor.business_name}}</p>
+        <span class="best">{{vendor.slogan}}</span>
+        <div class="timing">
+            <span class="{{vendor.working_status}}">{{vendor.working_status}}</span>
+            <span class="clock">{{vendor.opening_time}} to {{vendor.closing_time}}</span>
+        </div>
+    </a>
+
+</div>
+
+
+<div class="col-md-4 product-multi-level-category-item" ng-show="is_single === true && vendor_categories.length && has_multi_level === true" ng-repeat="category in vendor_categories">
+    <div class="thumbnail">
+
+        <div class="image-container">
+
+            <img src="{{category.image}}" alt="{{category.title}}">
+
+
+            <div class="sub-links">
+                <p class="product-category-title parent-product-category">{{category.title}}</p>
+                <div  ng-show="category.sub_categories.length">
+                    <ul>
+                        <li ng-repeat="sub_category in category.sub_categories">
+                            <a href="/{{category_slug}}/{{vendors[0].slug}}#/{{sub_category.slug}}">{{sub_category.title}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--sub-links-->
+
+        </div>
+        <!--image-container-->
+
+    </div>
+    <!--thumbnail-->
+</div>
+
+
+<div class="col-md-4 repeated-item ng-empty-alert hidden" ng-show="!vendors.length" ng-cloak>No vendor available for your location.</div>
+
+<div class="col-md-4 repeated-item ng-empty-alert hidden" ng-show="has_multi_level === true && vendors.length === 1 && !vendor_categories"  ng-cloak>No category available for this vendor.</div>

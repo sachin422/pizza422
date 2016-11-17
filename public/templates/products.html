@@ -1,0 +1,101 @@
+<div class="product-description">
+<h2 class="center-heading">{{category}}
+<span class="pull-right">
+    <a href="javascript:void(0)" class="glyphicon glyphicon-list-alt product-view-style" data-view="list" title="Switch to list view"></a>
+    <a href="javascript:void(0)" class=" glyphicon glyphicon-th product-view-style" data-view="grid" title="Switch to grid view"></a>
+</span>
+</h2>
+
+<div class="sub-heading">
+    <h3>{{productCategory.title}}</h3>
+</div>
+<!--sub-heading-->
+
+    <div class="grid-view product-grid hidden">
+        <div class="col-md-6 col-md-6" ng-show="products.length" ng-repeat="product in products | filter:query">
+            <div class="check-it thumbnail">
+                <a class="product-image" href="#">
+                        <img class="img-responsive" src="{{product.image}}">
+                    </a>
+
+
+            <div class="about-product">
+                <a class="text" href="#">{{product.title}}</a>
+                    <p class="quantitiy">
+                        <span class="price" ng-show="product.compare_price <= 0"><i class="rupee-sign"></i>{{product.price}}</span>
+                        <span class="price" ng-hide="product.compare_price <= 0"><strike><i class="rupee-sign"></i>{{product.price}}</strike>&nbsp; <i class="rupee-sign"></i>{{product.compare_price}}</span>
+
+                        <span class="unit">{{product.weight}} {{product.unit}}</span>
+                    </p>
+
+
+            </div>
+            <div class="add-cart">
+                <a href="javascript:void(0)" class="minus" data-product="{{product.id}}" data-target="#item_qty_{{product.id}}" data-cart="#cart_btn_{{product.id}}" data-flow="decrement" onclick="addToCart(this)"></a>
+                <span class="no product_item_qty_{{product.id}}">0</span>
+                <a href="javascript:void(0)" class="plus" data-product="{{product.id}}" data-target="#item_qty_{{product.id}}" data-cart="#cart_btn_{{product.id}}" data-flow="increment" onclick="addToCart(this)"></a>
+                <!--<a href="javascript:void(0)" id="cart_btn_{{product.id}}" class="cart-button" data-qty="1" data-product="{{product.id}}" onclick="addToCart(this)"></a>-->
+
+            </div>
+        </div>
+    </div>
+        <div class="clearfix"></div>
+</div>
+
+<div class="product-list">
+    <div class="your-product" ng-show="products.length" ng-repeat="product in products | filter:query">
+        <div class="row">
+
+            <div class="col-md-2">
+                <div class="product-image">
+                    <img class="img-responsive" src="{{product.image}}">
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <div class="product-text">
+                    <p class="name">{{product.title}}</p>
+                    <p>
+                        <span class="unit">{{product.weight}} {{product.unit}}</span>
+
+                    </p>
+
+
+                </div>
+                <!--product-text-->
+            </div>
+            <!--col-md-8-->
+
+            <div class="col-md-5">
+                <div class="product-price pull-right">
+
+                    <span class="price" ng-show="product.compare_price <= 0"><i class="rupee-sign"></i>{{product.price}}</span>
+                    <span class="price" ng-hide="product.compare_price <= 0"><strike><i class="rupee-sign"></i>{{product.price}}</strike>&nbsp; <i class="rupee-sign"></i>{{product.compare_price}}</span>
+                </div>
+                <div class="clearfix"></div>
+                <div class="add-cart">
+                    <a href="javascript:void(0)" class="minus" data-product="{{product.id}}" data-target="#item_qty_{{product.id}}" data-cart="#cart_btn_{{product.id}}" data-flow="decrement" onclick="addToCart(this)"></a>
+                    <span class="no product_item_qty_{{product.id}}" >0</span>
+                    <a href="javascript:void(0)" class="plus" data-product="{{product.id}}" data-target="#item_qty_{{product.id}}" data-cart="#cart_btn_{{product.id}}" data-flow="increment" onclick="addToCart(this)"></a>
+                    <!--<a href="javascript:void(0)" id="cart_btn_{{product.id}}" class="cart-button" data-qty="1" data-product="{{product.id}}" onclick="addToCart(this)"></a>-->
+
+                </div>
+                <!--add-cart-->
+            </div>
+            <!--col-md-4-->
+        </div>
+        <!--row-->
+    </div>
+</div>
+    <div class="no-products ng-empty-alert hidden" ng-hide="products.length">No products.</div>
+<!--
+<div class="seprator"></div>
+
+-->
+
+    <div class="pagination" ng-show="products.length >= 30">
+    <button ng-click='previousPage()' class="btn btn-primary">Previous</button>
+        <button ng-click='nextPage()' class="btn btn-primary">Next</button>
+    </div>
+
+</div>

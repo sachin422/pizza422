@@ -1,0 +1,41 @@
+<div class="pizza-modal modal fade " id="change-location-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header pad-10">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true"><img class="append-attr" data-with="base_url" data-attr="src" src="/assets/images/close.png" alt="close"></span></button>
+                <h4 class="modal-title">Change Location</h4>
+                <!--login-form-->
+            </div>
+            <!--modal-header-->
+            <div class="modal-body">
+                <div class="otp-group col-sm-10 col-sm-offset-1">
+                     <form action="/choose-location" class="form-horizontal location-form append-attr" data-with="base_url" data-attr="action" id="location_form" method="post">
+                         <input type="hidden" name="location_id" id="location_id">
+                         <div class="form-group">
+                            <label class="col-sm-12">Please choose your location.</label>
+                            <div class="col-sm-12">
+                                <input type="text" value="" class="form-control change_location" id="location" placeholder="Area, City" name="location">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--modal-body-->
+        </div>
+        <!--modal-content-->
+    </div>
+    <!--modal-dialog-->
+</div>
+<!--modal-->
+
+<script>
+    $appendAttr('#change-location-modal');
+
+    updateChangeLocationsSource();
+
+    $('.change_location').keypress(function(e){
+        if ( e.which == 13 ) e.preventDefault();
+    });
+
+</script>

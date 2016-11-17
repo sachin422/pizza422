@@ -1,0 +1,79 @@
+
+@headingColor: #222;
+@lightGrey: #f0f0f0;
+@blue:#337ab7;
+@stage_shadow:0px 1px 4px rgba(0,0,0,0.3);
+@stage_bg: #fff;
+
+body.portal {
+  background-color: @lightGrey;
+}
+.mt-50 {
+  margin-top: 50px;
+}
+.mt-80 {
+  margin-top: 80px;
+}
+
+.stage{
+  box-shadow: @stage_shadow;
+  padding-bottom: 40px;
+}
+.stage-white {
+  background-color: @stage_bg;
+}
+
+.stage-default {
+  background-color: #f5f5f5;
+}
+.stage-title {
+  border-bottom: 1px solid #dcdcdc;
+  padding-bottom: 10px;
+  text-align: center;
+  color:@headingColor;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.dropdown-menu > li > a:hover {
+  background-color: @blue;
+  color: #fff;
+  outline: 0 none;
+  text-decoration: none;
+}
+
+input[type="file"] {
+  border: none;
+  display: block;
+  padding-bottom: 40px;
+}
+
+span.field-info {
+  font-size: 12px;
+  font-style: italic;
+}
+
+.nav-pills > li.active > a {
+  text-decoration: none;
+  background-color: #EEE;
+  color:#000;
+}
+
+.ui_tpicker_unit_hide {
+  display: none !important;
+}
+
+.ui-timepicker-div dl {
+  padding: 10px;
+}
+
+.vendor-list-create {
+  height:300px;
+  overflow-y: scroll
+}
+.category-list-create {
+  height:300px !important;
+
+}

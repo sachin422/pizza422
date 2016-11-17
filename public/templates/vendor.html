@@ -1,0 +1,11 @@
+<div class="col-md-4 repeated-item" ng-repeat="category in vendors">
+    <a href="#" class="thumbnail off">
+        <img src="{{category.vendor.logo}}" alt="grocery-mart">
+        <p>{{category.vendor.business_name }}</p>
+        <span class="best">Best butter chicken and mutton.</span>
+        <div class="timing">
+            <span class="open">Open</span>
+            <span class="clock">{{category.vendor.opening_time}} to {{category.vendor.closing_time}}</span>
+        </div>
+    </a>
+</div>

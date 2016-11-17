@@ -1,0 +1,25 @@
+<div class="col-md-4 product-multi-level-category-item" ng-repeat="category in vendor_categories">
+    <div class="thumbnail">
+
+        <div class="image-container">
+            <img src="{{category.image}}" alt="{{category.title}}">
+
+
+            <div class="sub-links" ng-if="category.sub_categories.length">
+                <ul>
+                    <li ng-repeat="subcategory in category.sub_categories">
+                        <a href="/{{currentCategory}}/{{vendor_slug}}/#/{{subcategory.slug}}">{{subcategory.title}}</a>
+                    </li>
+
+                </ul>
+            </div>
+            <!--sub-links-->
+
+        </div>
+        <!--image-container-->
+
+        <p>{{category.title}}</p>
+
+    </div>
+    <!--thumbnail-->
+</div>
